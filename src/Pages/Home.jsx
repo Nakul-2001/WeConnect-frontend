@@ -75,7 +75,7 @@ function Home() {
 
   useEffect(()=>{
     if(currentUser){
-      const socket = io('http://localhost:3000/',{
+      const socket = io('https://weconnect-backend.onrender.com/',{
         query:{
           userId:currentUser._id,
         }

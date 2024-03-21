@@ -110,7 +110,7 @@ const Messages = () => {
         if (!sentmessage) return;
         const Token = currentUser.accessToken;
         const res = await axios.post(
-          `http://localhost:3000/api/message/send/${selectedConversation._id}`,
+          `https://weconnect-backend.onrender.com/api/message/send/${selectedConversation._id}`,
           { message: sentmessage },
           {
             headers: {

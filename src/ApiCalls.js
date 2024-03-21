@@ -8,7 +8,7 @@ import notification from './Sound/mixkit-correct-answer-tone-2870.wav';
 //Get Users
 export const getUser = async (Token) =>{
     try {
-        const res = await axios.get('http://localhost:3000/api/user/',{headers:{
+        const res = await axios.get('https://weconnect-backend.onrender.com/api/user/',{headers:{
             Token:Token
         }});
         console.log(res.data);
@@ -30,7 +30,7 @@ export const login = async (dispatch,user) =>{
         
         dispatch(loginStart());
         
-        const res = await axios.post(`http://localhost:3000/api/auth/Login`,user);
+        const res = await axios.post(`https://weconnect-backend.onrender.com/api/auth/Login`,user);
         
         const data = await res.data;
         
@@ -65,7 +65,7 @@ export const register = async (user) =>{
         const error = handleInputError({...user});
         if(!error) return false;
 
-        const res = await axios.post(`http://localhost:3000/api/auth/Register`,user);
+        const res = await axios.post(`https://weconnect-backend.onrender.com/api/auth/Register`,user);
         const data = await res.data;
         console.log(data);
         return true;
@@ -81,7 +81,7 @@ export const getMessages = async ({currentUser,selectedConversation}) => {
     try {
       const Token = currentUser.accessToken;
       const res = await axios.get(
-        `http://localhost:3000/api/message/${selectedConversation._id}`,
+        `https://weconnect-backend.onrender.com/api/message/${selectedConversation._id}`,
         {
           headers: {
             Token: Token,
